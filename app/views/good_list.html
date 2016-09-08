@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Zalissya{% endblock %}
+{% block js %}
+    <script src="/js/controller.js"></script>
+{% endblock %}
+{% block head %}
+    {{parent()}}
+{% endblock %}
+{% block content %}
+    {% verbatim %}
+    <div ng-app="goodsApp" ng-controller="tableCtrl"> 
+        <center><h2>{{title}}</h2></center>
+        <center><a class="btn btn-default" ng-click="getCategoryForm()">Add category</a></center><br/>
+        <div id="goodsList" class="row" >
+            <div class="col-md-8 col-md-offset-2">
+                <table class="table no-border">
+                    <tbody ng-repeat="cat in categories">
+                        <tr class="category success">
+                            <td class="index">{{$index + 1}}</td>
+                            <td><center>{{cat.name}}</center></td>
+                            <td class="goods-number"><span class="badge">{{cat.goods.length}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <center><span class="glyphicon glyphicon-plus"></span></center>
+                                <table class="table table-condensed goods-table">
+                                    <tr class="good" ng-repeat="good in cat.goods">
+                                        <td class="index">{{$index + 1}}</td>
+                                        <td>{{good.name}}</td>
+                                        <td class="action"><span class="glyphicon glyphicon-remove"></span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endverbatim %}
+{% endblock %}

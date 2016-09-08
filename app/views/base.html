@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+<!--        <link rel="shortcut icon" href="/img/title.png" type="image/x-icon"/>     -->
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/bower_components/summernote/dist/summernote.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/bower_components/summernote/dist/summernote.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        {% block js %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="container">
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>            
+            <footer id="footer" class="bs-docs-footer">
+                {% block footer %}
+                <center><div class="footer-sign" > Vetal © 2016. </div></center>
+                {% endblock %}
+            </footer>
+        </div> 
+    </body>
+</html>

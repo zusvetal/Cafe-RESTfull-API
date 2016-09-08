@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="goodsApp">
+    <head>
+        <title>Cafe</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/img/title.png" type="image/x-icon"/>     
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/bower_components/summernote/dist/summernote.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/bower_components/summernote/dist/summernote.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <script src="/js/controller.js"></script>
+    </head>
+    <body ng-controller="tableCtrl">
+    <center><h2>{{title}}</h2></center>
+    <div id="goodsList" class="row" >
+        <div class="col-md-8 col-md-offset-2">
+            <table class="table">
+                <tbody ng-repeat="cat in categories">
+                    <tr class="category">
+                        <td class="index">{{$index + 1}}</td>
+                        <td><center>{{cat.name}}</center></td>
+                        <td class="goods-number"><span class="badge">{{cat.goods.length}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table class="table goods-table  table-hover">
+                            <tr class="good" ng-repeat="good in cat.goods">
+                                <td class="index">{{$index + 1}}</td>
+                                <td>{{good.name}}</td>
+                                <td class="action"><span class="glyphicon glyphicon-remove"></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
